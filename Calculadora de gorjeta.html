@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    
+    <title>Quick Tip</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+  <body>
+    <main oninput="update()">
+      <h1>Calculadora de Gorjeta</h1>
+      <section>
+        <div class="bill">
+          <label for="yourBill">Conta</label>
+          <input type="number" placeholder="Sua Conta" id="yourBill"> 
+        </div>
+        <div>
+          <div class="space-between">
+            <label for="">% de Gorjeta</label><span id="tipPercent">0 %</span>
+          </div>
+          <input type="range" value="0" id="tipInput" class="range">
+        </div>
+        <div class="space-between">
+          <span>Gorjeta</span>
+          <span id="tipValue">R$ 0.00</span>
+        </div>
+        <hr>
+        <div class="space-between total">
+          <span>Total</span>
+          <span id="totalWithTip">R$ 0.00</span>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <div class="space-between">
+            <label for="splitInput">Dividir em:</label>
+            <span id="splitValue">1 Pessoa</span>
+          </div>
+          <input type="range" min="1" max="10" value="1" id="splitInput" class="range">
+        </div>
+        <div class="space-between">
+          <span>Valor individual:</span>
+          <span id="billEach">R$ 0.00</span>
+        </div>
+      </section>
+    </main>
+    <script src="./index.js"></script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
